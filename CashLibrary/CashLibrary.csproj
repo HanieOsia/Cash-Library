@@ -53,5 +53,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SystemCashLibrary\SystemCashLibrary.csproj">
+      <Project>{7C1E4B9C-C0C7-4C81-BE58-AFD932A20F1B}</Project>
+      <Name>SystemCashLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

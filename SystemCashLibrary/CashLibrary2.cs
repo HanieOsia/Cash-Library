@@ -6,15 +6,22 @@ using System.Text;
 
 namespace SystemCashLibrary
 {
-    public class CashLibrary
+    public class CashLibrary2
     {
         private string _FilePath;
         private string _FileDirectory;
+        public CashLibrary2(string FileName, string Get_FileDirectory)
+        {
+            _FileDirectory = Directory.GetCurrentDirectory() + "\\" + Get_FileDirectory;
+            _FilePath = _FileDirectory + "\\" + FileName;
+        }
+
+
         //har file ya directory pas az tarif mibayest marahele zir ra tey konad:
         //1.writing
         //2.reading
         StreamReader ReaderObj;
-        StreamReader WriterObj;
+        StreamWriter WriterObj;
         //avala az hame bayad chek shavad yek file ya directory jahate rikhtane chsh dar an vojud darad ya na
         //dar surate adame vojud ejaze sakht darad ya na
         /// <summary>
@@ -29,7 +36,7 @@ namespace SystemCashLibrary
             {
                 if(File.Exists(_FilePath))
                 {
-                    WriterObj = new StreamReader(_FilePath);
+                    WriterObj = new StreamWriter(_FilePath);
                     WriterObj.WriteLine(TextToWrite);
                     WriterObj.Close();
                     return 1;
@@ -39,7 +46,7 @@ namespace SystemCashLibrary
                     if(CreatingAuthorization)
                     {
                         File.Create(_FilePath);
-                        WriterObj = new StreamReader(_FilePath);
+                        WriterObj = new StreamWriter(_FilePath);
                         WriterObj.WriteLine(TextToWrite);
                         WriterObj.Close();
                         return 1;
@@ -56,7 +63,7 @@ namespace SystemCashLibrary
                 {
                     Directory.CreateDirectory(_FileDirectory);
                     File.Create(_FilePath);
-                    WriterObj = new StreamReader(_FilePath);
+                    WriterObj = new StreamWriter(_FilePath);
                     WriterObj.WriteLine(TextToWrite);
                     WriterObj.Close();
                     return 1;
@@ -101,7 +108,7 @@ namespace SystemCashLibrary
         /// <returns>The File Text</returns>
         public string ReadFile()
         {
-            string result;
+            string result = "";
             if (File.Exists(_FilePath))
             {
                 ReaderObj = new StreamReader(_FilePath);

@@ -8,7 +8,8 @@ namespace CashLibrary
 {
     class CshClss
     {
-        public int _ID { get; set; }
-        public string _Name { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        
     }
 }
