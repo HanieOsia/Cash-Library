@@ -14,7 +14,9 @@ namespace SystemCashLibrary
         {
             _FileDirectory = Directory.GetCurrentDirectory() + "\\" + Get_FileDirectory;
             _FilePath = _FileDirectory + "\\" + FileName;
-        }
+        }/// <summary>
+        /// 
+        /// </summary>
 
 
         //har file ya directory pas az tarif mibayest marahele zir ra tey konad:
